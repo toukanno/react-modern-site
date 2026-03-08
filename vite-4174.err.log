@@ -1,0 +1,291 @@
+[2m23:30:25[22m [31m[1m[vite][22m[39m [31mInternal server error: [postcss] C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/styles.css:3:1: Unclosed block[39m
+  Plugin: [35mvite:css[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/styles.css[39m:3:0
+[33m  1  |  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+  2  |  
+  3  |  :root {
+     |  ^[39m
+      at Input.error (C:\Users\masayosiyuuto\Documents\Project\react-modern-site\react-modern-site\node_modules\postcss\lib\input.js:135:16)
+      at Parser.unclosedBlock (C:\Users\masayosiyuuto\Documents\Project\react-modern-site\react-modern-site\node_modules\postcss\lib\parser.js:575:22)
+      at Parser.endFile (C:\Users\masayosiyuuto\Documents\Project\react-modern-site\react-modern-site\node_modules\postcss\lib\parser.js:335:35)
+      at Parser.parse (C:\Users\masayosiyuuto\Documents\Project\react-modern-site\react-modern-site\node_modules\postcss\lib\parser.js:476:10)
+      at parse (C:\Users\masayosiyuuto\Documents\Project\react-modern-site\react-modern-site\node_modules\postcss\lib\parse.js:11:12)
+      at new LazyResult (C:\Users\masayosiyuuto\Documents\Project\react-modern-site\react-modern-site\node_modules\postcss\lib\lazy-result.js:165:16)
+      at Processor.process (C:\Users\masayosiyuuto\Documents\Project\react-modern-site\react-modern-site\node_modules\postcss\lib\processor.js:53:14)
+      at runPostCSS (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:43853:52)
+      at async compilePostCSS (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:43823:18)
+      at async compileCSS (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:43678:27)
+      at async TransformPluginContext.handler (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42994:11)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+      at async viteTransformMiddleware (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:37254:24)
+[2m23:38:24[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /src/site-styles.css (resolved id: C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/site-styles.css) in C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/SiteApp.jsx. Does the file exist?
+[2m23:44:06[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to load url /src/App.jsx (resolved id: C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx) in C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx. Does the file exist?
+[2m23:45:19[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+      at async viteTransformMiddleware (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:37254:24)
+[2m23:45:19[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+[2m23:45:19[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+[2m23:45:19[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+      at async viteTransformMiddleware (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:37254:24)
+[2m23:45:25[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+[2m23:45:25[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+[2m23:45:25[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+[2m23:45:25[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+      at async viteTransformMiddleware (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:37254:24)
+[2m23:45:25[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+[2m23:45:25[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+[2m23:45:25[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+      at async viteTransformMiddleware (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:37254:24)
+[2m23:45:25[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+      at async viteTransformMiddleware (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:37254:24)
+[2m23:45:25[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+[2m23:45:58[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+[2m23:45:58[22m [31m[1m[vite][22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+[2m23:45:58[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+[2m23:45:58[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+      at async viteTransformMiddleware (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:37254:24)
+[2m23:45:58[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
+[2m23:45:58[22m [31m[1m[vite][22m[39m [31mInternal server error: Failed to resolve import "react-router-dom" from "src/main.jsx". Does the file exist?[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/main.jsx[39m:3:27
+[33m  2  |  import React from "react";
+  3  |  import ReactDOM from "react-dom/client";
+  4  |  import { HashRouter } from "react-router-dom";
+     |                              ^
+  5  |  import App from "./App";
+  6  |  import "./styles.css";[39m
+      at TransformPluginContext._formatLog (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42528:41)
+      at TransformPluginContext.error (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42525:16)
+      at normalizeUrl (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40504:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40623:37
+      at async Promise.all (index 3)
+      at async TransformPluginContext.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:40550:7)
+      at async EnvironmentPluginContainer.transform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)
+      at async loadAndTransform (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:35739:27)
+      at async viteTransformMiddleware (file:///C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:37254:24)
+[2m23:45:58[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m Pre-transform error: Failed to resolve import "react-router-dom" from "src/App.jsx". Does the file exist?
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mC:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site/src/App.jsx[39m:1:52
+[33m  16 |  }
+  17 |  var _s = $RefreshSig$();
+  18 |  import { NavLink, Route, Routes, useLocation } from "react-router-dom";
+     |                                                       ^
+  19 |  const highlights = [
+  20 |    { value: "Live", label: "リアルタイムプレビューで即確認" },[39m
