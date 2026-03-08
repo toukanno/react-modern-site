@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "react-modern-site",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "C:/Users/masayosiyuuto/Documents/Project/react-modern-site/react-modern-site"],
+      "port": 5173
+    }
+  ]
+}
