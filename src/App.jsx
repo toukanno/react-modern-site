@@ -46,19 +46,19 @@ const audiences = [
 const plans = [
   {
     name: '無料版',
-    href: 'https://memo-color.booth.pm/items/7887271',
+    href: 'https://rainbowmd.booth.pm/items/7887271',
     note: 'まず雰囲気と使い心地を試したい人向け。',
     accent: 'plan-free'
   },
   {
     name: 'ベータ版',
-    href: 'https://memo-color.booth.pm/items/7887376',
+    href: 'https://rainbowmd.booth.pm/items/7887376',
     note: '新しい改善を早めに触りたい人向け。',
     accent: 'plan-beta'
   },
   {
     name: '製品版',
-    href: 'https://memo-color.booth.pm/items/7887435',
+    href: 'https://rainbowmd.booth.pm/items/7887435',
     note: 'RainbowMD をしっかり使いたい人向けの本命プラン。',
     accent: 'plan-pro'
   }
@@ -125,7 +125,7 @@ function AppShell({ children }) {
             <h2>Markdown を、もっと軽く、鮮やかに。</h2>
           </div>
           <div className="footer-links">
-            <a href="https://memo-color.booth.pm/items/7887435">製品版</a>
+            <a href="https://rainbowmd.booth.pm/items/7887435">製品版</a>
             <a href="https://github.com/toukanno/rainbowmd-pages">GitHub</a>
             <a href="privacy-policy.html">Privacy Policy</a>
           </div>
@@ -349,7 +349,7 @@ function SupportPage() {
           </p>
           <div className="contact-actions">
             <a className="button button-primary" href="https://ko-fi.com/rainbowmd">Ko-fi で支援</a>
-            <a className="button button-secondary" href="https://memo-color.booth.pm/items/7887435">製品版を見る</a>
+            <a className="button button-secondary" href="https://rainbowmd.booth.pm/items/7887435">製品版を見る</a>
           </div>
         </div>
       </div>
