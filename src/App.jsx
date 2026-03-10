@@ -87,6 +87,11 @@ const affiliateLinks = [
   }
 ];
 
+const microsoftStore = {
+  deepLink: 'ms-windows-store://pdp/?productid=XP8BVG4DLVCQ3C',
+  webUrl: 'https://apps.microsoft.com/store/detail/XP8BVG4DLVCQ3C'
+};
+
 const navItems = [
   { to: '/', label: 'Home' },
   { to: '/features', label: 'Features' },
@@ -131,6 +136,7 @@ function AppShell({ children }) {
           </div>
           <div className="footer-links">
             <a href="https://memo-color.booth.pm/items/8061324">製品版</a>
+            <a href={microsoftStore.webUrl}>Microsoft Store</a>
             <a href="https://github.com/toukanno/rainbowmd-pages">GitHub</a>
             <a href="privacy-policy.html">Privacy Policy</a>
           </div>
@@ -301,7 +307,11 @@ function PlansPage() {
           <span className="panel-label">{featuredPlan.badge}</span>
           <h3>{featuredPlan.name}</h3>
           <p>{featuredPlan.value}</p>
-          <a className="button button-primary" href={featuredPlan.href}>継続利用の本命を見る</a>
+          <div className="contact-actions">
+            <a className="button button-primary" href={featuredPlan.href}>継続利用の本命を見る</a>
+            <a className="button button-secondary" href={microsoftStore.webUrl}>Microsoft Store 版</a>
+          </div>
+          <small>Windows でストアアプリを直接開く場合: {microsoftStore.deepLink}</small>
         </article>
       </div>
 
@@ -438,6 +448,13 @@ function LinksPage() {
             <p>{item.text}</p>
           </a>
         ))}
+        <a className="review-card link-card" href={microsoftStore.webUrl}>
+          <div>
+            <span className="panel-label">Store</span>
+            <blockquote>Microsoft Store</blockquote>
+          </div>
+          <p>Windows 向けの配布導線です。通常は Web Store URL から開けます。</p>
+        </a>
       </div>
 
       <div className="section-heading route-intro affiliate-intro">
