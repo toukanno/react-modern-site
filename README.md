@@ -19,12 +19,14 @@ npm run build
 
 このリポジトリは実アプリが `react-modern-site/` 配下にあるため、Vercel では `Root Directory` に `react-modern-site` を指定します。
 
+リポジトリ内の `vercel.json` で以下を固定しています。
+
 - Framework Preset: `Vite`
 - Build Command: `npm run build`
 - Output Directory: `dist`
 
 補足:
-- Vercel ではそのまま公開できます。
+- ルーティングは `HashRouter` のため、Vercel では追加の rewrite 設定なしで公開できます。
 - GitHub Pages のようにサブパス配下へ出す場合だけ、`VITE_BASE_PATH=/react-modern-site/` を指定してビルドします。
 
 ## 公開先候補

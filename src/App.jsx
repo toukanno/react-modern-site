@@ -1,5 +1,12 @@
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import AdBanner from './AdBanner';
+import {
+  comparisonRows,
+  planCatalog,
+  planFaqs,
+  planScenarios,
+  purchaseReassurance
+} from './planContent';
 
 const highlights = [
   { value: 'Live', label: 'リアルタイムプレビューで即確認' },
@@ -41,48 +48,6 @@ const audiences = [
     step: '03',
     title: 'Markdown 初学者',
     text: '高機能すぎるエディタより、まず気軽に触れて書き始めたい人にちょうどいい設計です。'
-  }
-];
-
-const plans = [
-  {
-    slug: 'free',
-    name: '無料版',
-    href: 'https://memo-color.booth.pm/items/8061337',
-    note: 'まず雰囲気と使い心地を試したい人向け。',
-    accent: 'plan-free',
-    summary: '最初の導入用。基本の操作感と表示のテンポを無料で確認できます。',
-    points: [
-      'まず使い心地を見たい人向けの入口プラン',
-      '執筆からプレビューまでの流れを軽く試せる',
-      '導入判断をしたい人が最初に触る想定'
-    ]
-  },
-  {
-    slug: 'beta',
-    name: 'ベータ版',
-    href: 'https://memo-color.booth.pm/items/8061302',
-    note: '新しい改善を早めに触りたい人向け。',
-    accent: 'plan-beta',
-    summary: '改善途中の更新を早めに触りたい人向け。変化の速さを優先するプランです。',
-    points: [
-      '新機能や改善を先に触って確認したい人向け',
-      '安定性よりも更新速度を重視したいときに合う',
-      '個人開発の進化を追いながら使いたい人向け'
-    ]
-  },
-  {
-    slug: 'pro',
-    name: '製品版',
-    href: 'https://memo-color.booth.pm/items/8061324',
-    note: 'RainbowMD をしっかり使いたい人向けの本命プラン。',
-    accent: 'plan-pro',
-    summary: '継続的に使う前提で選ぶメインプラン。日常の執筆環境として据えたい人向けです。',
-    points: [
-      'しっかり使い続ける前提で選ぶ本命プラン',
-      '日常メモや資料づくりの定着を想定した導線',
-      '気に入ったあとに腰を据えて選びやすい位置付け'
-    ]
   }
 ];
 
@@ -195,7 +160,7 @@ function HomePage() {
           </p>
 
           <div className="hero-actions">
-            <NavLink className="button button-primary" to="/plans">入手プランを見る</NavLink>
+            <NavLink className="button button-primary" to="/plans">自分に合うプランを選ぶ</NavLink>
             <NavLink className="button button-secondary" to="/features">機能を見る</NavLink>
           </div>
 
@@ -257,14 +222,14 @@ function HomePage() {
           <p>リアルタイムプレビューやテーマ切替の魅力を一覧で確認できます。</p>
         </NavLink>
         <NavLink className="jump-card" to="/plans">
-          <span className="panel-label">Download</span>
-          <strong>配布プランへ</strong>
-          <p>無料版、ベータ版、製品版の違いを見て、そのまま Booth へ進めます。</p>
+          <span className="panel-label">Choose</span>
+          <strong>プラン診断へ</strong>
+          <p>無料版、ベータ版、製品版の違いを見比べて、そのまま Booth へ進めます。</p>
         </NavLink>
         <NavLink className="jump-card" to="/support">
           <span className="panel-label">Support</span>
           <strong>支援ページへ</strong>
-          <p>Ko-fi や関連リンクをまとめて辿れます。</p>
+          <p>購入と支援の違いを分けて確認し、Ko-fi に進めます。</p>
         </NavLink>
       </section>
     </>
@@ -315,23 +280,72 @@ function FeaturesPage() {
 }
 
 function PlansPage() {
+  const featuredPlan = planCatalog.find((plan) => plan.slug === 'pro');
+
   return (
     <section className="shell section route-page">
       <div className="section-heading route-intro">
         <p className="eyebrow">Plans</p>
-        <h1 className="route-title">試してから選べる 3 つの配布プラン。</h1>
-        <p>まず無料版で雰囲気を掴み、その後にベータ版や製品版へ進める構成です。いきなり購入を迫らない設計にしています。</p>
+        <h1 className="route-title">どのプランから入るかを、ページ内で決めやすくする。</h1>
+        <p>RainbowMD は、最初に無料版で相性を見てから次へ進める導線を基本にしています。ここでは 3 つのプランを同じ目線で並べるのではなく、どんな人にどれが合うかを先に判断できる形に整理しています。</p>
       </div>
 
-      <div className="plan-grid">
-        {plans.map((plan) => (
+      <div className="plan-decision-shell">
+        <div className="proof-panel plan-decision-copy">
+          <p className="eyebrow">Choose by fit</p>
+          <h2>まずは「何を確かめたいか」で選ぶ。</h2>
+          <p>最初の確認なら無料版、改善を早く追うならベータ版、日常利用の本命なら製品版という考え方で十分です。先に用途を決めてから Booth へ進めると迷いが減ります。</p>
+        </div>
+
+        <article className={`plan-focus-card ${featuredPlan.accent}`}>
+          <span className="panel-label">{featuredPlan.badge}</span>
+          <h3>{featuredPlan.name}</h3>
+          <p>{featuredPlan.value}</p>
+          <a className="button button-primary" href={featuredPlan.href}>継続利用の本命を見る</a>
+        </article>
+      </div>
+
+      <div className="plan-comparison" aria-label="RainbowMD plan comparison">
+        <div className="plan-comparison-head">
+          <span />
+          {planCatalog.map((plan) => (
+            <article className={`plan-column-card ${plan.accent}`} key={plan.slug}>
+              <span className="panel-label">{plan.badge}</span>
+              <h3>{plan.name}</h3>
+              <p>{plan.note}</p>
+              <a className="button button-secondary" href={plan.href}>{plan.ctaLabel}</a>
+              <small>{plan.ctaNote}</small>
+            </article>
+          ))}
+        </div>
+
+        {comparisonRows.map((row) => (
+          <div className="plan-comparison-row" key={row.key}>
+            <div className="plan-row-label">
+              <span className="panel-label">Compare</span>
+              <strong>{row.label}</strong>
+            </div>
+            {planCatalog.map((plan) => (
+              <article className="plan-row-card" key={`${plan.slug}-${row.key}`}>
+                <p>{plan[row.key]}</p>
+              </article>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <div className="plan-grid plan-grid-detailed">
+        {planCatalog.map((plan) => (
           <article className={`plan-card ${plan.accent}`} key={plan.name}>
-            <span className="panel-label">Booth</span>
+            <span className="panel-label">{plan.badge}</span>
             <h3>{plan.name}</h3>
-            <p>{plan.note}</p>
+            <p>{plan.value}</p>
+            <div className="plan-card-copy">
+              <p><strong>向いている人:</strong> {plan.audience}</p>
+              <p><strong>選びどき:</strong> {plan.bestFor}</p>
+            </div>
             <div className="contact-actions">
-              <NavLink className="button button-primary" to={`/plans/${plan.slug}`}>詳細ページ</NavLink>
-              <a className="button button-secondary" href={plan.href}>Booth で見る</a>
+              <a className="button button-primary" href={plan.href}>{plan.ctaLabel}</a>
             </div>
           </article>
         ))}
@@ -339,52 +353,61 @@ function PlansPage() {
 
       <AdBanner className="content-ad" slot={import.meta.env.VITE_ADSENSE_SLOT_PLANS} />
 
+      <div className="detail-section">
+        <div className="section-heading route-intro">
+          <p className="eyebrow">Recommended path</p>
+          <h2>よくある選び方を、そのまま導線にする。</h2>
+          <p>訪問者が頭の中でやっている比較を、ページ上にそのまま置いています。どの目的に一番近いかで選べば十分です。</p>
+        </div>
+
+        <div className="scenario-grid">
+          {planScenarios.map((scenario) => {
+            const matchedPlan = planCatalog.find((plan) => plan.slug === scenario.planSlug);
+
+            return (
+              <article className="scenario-card" key={scenario.title}>
+                <span className="panel-label">Scenario</span>
+                <h3>{scenario.title}</h3>
+                <p>{scenario.description}</p>
+                <div className="scenario-footer">
+                  <strong>{matchedPlan.name}</strong>
+                  <a href={matchedPlan.href}>{matchedPlan.ctaLabel}</a>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+
       <div className="proof-section detail-section">
         <div className="proof-panel">
-          <p className="eyebrow">Download flow</p>
-          <h2>今の使い方に合わせて、必要な温度感で選べる。</h2>
-          <p>個人開発、日常メモ、配布文書の用途が混ざっていても、まず無料版から段階的に試せるのが強みです。</p>
+          <p className="eyebrow">Before you click out</p>
+          <h2>Booth に出る前の迷いを、このページで減らす。</h2>
+          <p>購入先はそのまま Booth ですが、判断材料はこのページにまとめています。押し売りではなく、無料版から段階的に選べることを前提にした案内です。</p>
         </div>
-        <div className="review-grid plan-review-grid">
-          {highlights.map((item) => (
-            <article className="review-card metric-card" key={item.label}>
-              <span className="panel-label">Highlight</span>
-              <blockquote>{item.value}</blockquote>
-              <p>{item.label}</p>
+        <div className="review-grid plan-review-grid reassurance-grid">
+          {purchaseReassurance.map((item) => (
+            <article className="review-card metric-card" key={item}>
+              <span className="panel-label">Reassurance</span>
+              <p>{item}</p>
             </article>
           ))}
         </div>
       </div>
-    </section>
-  );
-}
 
-function PlanDetailPage({ plan }) {
-  return (
-    <section className="shell section route-page">
-      <div className="contact-section support-layout">
-        <div className="route-intro">
-          <p className="eyebrow">Plan Detail</p>
-          <h1 className="route-title">{plan.name}の詳細</h1>
-          <p>{plan.summary}</p>
+      <div className="detail-section">
+        <div className="section-heading route-intro">
+          <p className="eyebrow">FAQ</p>
+          <h2>選ぶ前によく出る質問</h2>
         </div>
 
-        <div className={`contact-card support-card ${plan.accent}`}>
-          <p>{plan.note}</p>
-          <div className="workflow-list">
-            {plan.points.map((point, index) => (
-              <article className="workflow-item" key={point}>
-                <span>{`0${index + 1}`}</span>
-                <div>
-                  <p>{point}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-          <div className="contact-actions">
-            <a className="button button-primary" href={plan.href}>Booth 商品ページへ</a>
-            <NavLink className="button button-secondary" to="/plans">プラン一覧へ戻る</NavLink>
-          </div>
+        <div className="faq-stack">
+          {planFaqs.map((faq) => (
+            <article className="faq-card" key={faq.question}>
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -451,17 +474,17 @@ function SupportPage() {
         <div className="route-intro">
           <p className="eyebrow">Support RainbowMD</p>
           <h1 className="route-title">気に入ったら、使うか、広めるか、支援する。</h1>
-          <p>RainbowMD は個人開発のプロダクトです。プロダクトの継続性を見せる意味でも、支援導線を独立ページとして持たせる価値があります。</p>
+          <p>RainbowMD は個人開発のプロダクトです。このページは Ko-fi 支援のための場所で、購入するプランを選ぶ場所は別に分けています。購入を考えている場合は、先にプラン比較ページから入るほうが迷いません。</p>
         </div>
 
         <div className="contact-card support-card">
           <p>
-            まず無料版で試し、気に入ればベータ版や製品版へ進めます。
-            継続開発を応援したい場合は Ko-fi から支援でき、関連ツールのアフィリエイト紹介も併用できます。
+            製品を選びたいなら、まず無料版・ベータ版・製品版の違いを見てから Booth に進む流れが適しています。
+            継続開発を応援したい場合だけ、Ko-fi から支援できるように分けています。
           </p>
           <div className="contact-actions">
             <a className="button button-primary" href="https://ko-fi.com/rainbowmd">Ko-fi で支援</a>
-            <NavLink className="button button-secondary" to="/links">アフィリエイト導線を見る</NavLink>
+            <NavLink className="button button-secondary" to="/plans">購入プランを比べる</NavLink>
           </div>
         </div>
       </div>
@@ -473,9 +496,6 @@ function SupportPage() {
 
 function AppRoutes() {
   const location = useLocation();
-  const freePlan = plans.find((plan) => plan.slug === 'free');
-  const betaPlan = plans.find((plan) => plan.slug === 'beta');
-  const proPlan = plans.find((plan) => plan.slug === 'pro');
 
   return (
     <main key={location.pathname} className="route-transition">
@@ -483,9 +503,6 @@ function AppRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/plans" element={<PlansPage />} />
-        <Route path="/plans/free" element={<PlanDetailPage plan={freePlan} />} />
-        <Route path="/plans/beta" element={<PlanDetailPage plan={betaPlan} />} />
-        <Route path="/plans/pro" element={<PlanDetailPage plan={proPlan} />} />
         <Route path="/links" element={<LinksPage />} />
         <Route path="/support" element={<SupportPage />} />
       </Routes>

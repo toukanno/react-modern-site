@@ -585,6 +585,112 @@ p {
   margin-top: 22px;
 }
 
+.plan-decision-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 18px;
+  align-items: stretch;
+  margin-bottom: 22px;
+}
+
+.plan-decision-copy {
+  min-height: 100%;
+}
+
+.plan-focus-card,
+.plan-column-card,
+.plan-row-card,
+.scenario-card,
+.faq-card {
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.plan-focus-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: 28px;
+  border-radius: 30px;
+}
+
+.plan-focus-card h3,
+.plan-column-card h3,
+.scenario-card h3,
+.faq-card h3 {
+  margin: 0;
+}
+
+.plan-focus-card p,
+.plan-column-card p,
+.plan-row-card p,
+.scenario-card p,
+.faq-card p {
+  margin: 0;
+}
+
+.plan-comparison {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.plan-comparison-head,
+.plan-comparison-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.75fr) repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.plan-column-card,
+.plan-row-card,
+.plan-row-label {
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.plan-column-card {
+  display: grid;
+  gap: 12px;
+  padding: 24px;
+}
+
+.plan-column-card small {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.plan-row-label {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid var(--line);
+}
+
+.plan-row-label strong,
+.scenario-footer strong {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.plan-row-card {
+  padding: 22px;
+}
+
+.plan-grid-detailed {
+  margin-top: 18px;
+}
+
+.plan-card-copy {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.plan-card-copy strong {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
 .plan-card {
   padding: 28px;
   border: 1px solid var(--line);
@@ -598,6 +704,44 @@ p {
 
 .plan-card .button {
   margin-top: 24px;
+}
+
+.scenario-grid,
+.faq-stack {
+  display: grid;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.scenario-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.scenario-card,
+.faq-card {
+  padding: 26px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.scenario-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  padding-top: 18px;
+  margin-top: 18px;
+  border-top: 1px solid rgba(29, 22, 53, 0.12);
+}
+
+.scenario-footer a {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.reassurance-grid .review-card {
+  min-height: 200px;
 }
 
 .plan-free {
@@ -778,18 +922,22 @@ p {
 
 @media (max-width: 1024px) {
   .hero,
+  .plan-decision-shell,
   .split-section,
   .proof-section,
   .contact-section {
     grid-template-columns: 1fr;
   }
 
-  .service-grid {
+  .service-grid,
+  .scenario-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
   .plan-grid,
-  .link-grid {
+  .link-grid,
+  .plan-comparison-head,
+  .plan-comparison-row {
     grid-template-columns: 1fr;
   }
 
@@ -801,6 +949,10 @@ p {
 
   .footer-links {
     justify-content: flex-start;
+  }
+
+  .plan-comparison {
+    gap: 18px;
   }
 }
 
@@ -833,7 +985,8 @@ p {
   .hero-metrics,
   .service-grid,
   .review-grid,
-  .signal-footer {
+  .signal-footer,
+  .scenario-grid {
     grid-template-columns: 1fr;
   }
 
@@ -843,5 +996,15 @@ p {
 
   .workflow-item {
     grid-template-columns: 1fr;
+  }
+
+  .plan-focus-card,
+  .plan-column-card,
+  .plan-row-card,
+  .plan-row-label,
+  .scenario-card,
+  .faq-card {
+    padding: 22px;
+    border-radius: 24px;
   }
 }
