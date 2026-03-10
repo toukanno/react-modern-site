@@ -310,8 +310,8 @@ function PlansPage() {
           <div className="contact-actions">
             <a className="button button-primary" href={featuredPlan.href}>継続利用の本命を見る</a>
             <a className="button button-secondary" href={microsoftStore.webUrl}>Microsoft Store 版</a>
+            <a className="button button-secondary" href={microsoftStore.deepLink}>Windows ストアアプリで開く</a>
           </div>
-          <small>Windows でストアアプリを直接開く場合: {microsoftStore.deepLink}</small>
         </article>
       </div>
 
