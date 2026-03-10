@@ -73,18 +73,30 @@ const affiliateLinks = [
   {
     label: '制作メモを残すなら Notion',
     href: 'https://www.notion.so/ja-jp',
+    category: 'Productivity',
+    badge: 'Affiliate',
     text: '仕様整理やアイデアの下書きに向く定番ツール。実運用時はここを自分のアフィリエイト URL に差し替えられます。'
   },
   {
     label: '集中して書くなら Kindle',
     href: 'https://www.amazon.co.jp/kindle-dbs/hz/signup',
+    category: 'Reading',
+    badge: 'Amazon',
     text: '調査と読書の導線をまとめたい人向け。紹介リンクを載せやすい定番カテゴリとして枠を用意しています。'
   },
   {
     label: '周辺機材の紹介枠',
     href: 'https://www.amazon.co.jp/',
+    category: 'Gear',
+    badge: 'Recommended',
     text: 'キーボードやモニターなど、執筆環境に紐づく商材を紹介するためのアフィリエイト枠です。'
   }
+];
+
+const monetizationPoints = [
+  '各ページに AdSense スロットを配置し、回遊中にも広告を表示できる構成です。',
+  'Links ページではプロダクト導線と分離して、アフィリエイトリンクだけをまとまった一覧にしています。',
+  '広告・アフィリエイト表記をページ内に入れ、後から実リンクへ差し替えやすい形にしています。'
 ];
 
 const microsoftStore = {
@@ -219,6 +231,23 @@ function HomePage() {
 
       <section className="shell section">
         <AdBanner className="content-ad" slot={import.meta.env.VITE_ADSENSE_SLOT_HOME} />
+      </section>
+
+      <section className="shell section monetization-section">
+        <div className="section-heading route-intro">
+          <p className="eyebrow">Monetize</p>
+          <h2>広告とアフィリエイトを、導線を崩さずに置く。</h2>
+          <p>プロダクト販売ページの温度感を保ちながら、広告掲載と関連サービス紹介を分離して収益化できる構成です。</p>
+        </div>
+
+        <div className="review-grid monetization-grid">
+          {monetizationPoints.map((item) => (
+            <article className="review-card metric-card monetization-card" key={item}>
+              <span className="panel-label">Revenue</span>
+              <p>{item}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="shell section quick-grid">
@@ -463,6 +492,14 @@ function LinksPage() {
         <p>プロダクト本体の販売導線とは分けて置くことで、広告感を強くしすぎずに収益導線を追加できます。</p>
       </div>
 
+      <div className="affiliate-disclosure">
+        <strong>広告・アフィリエイト表記</strong>
+        <p>
+          このセクションのリンクは、ASP や Amazon アソシエイトなどの成果連動型リンクへ差し替えて運用できます。
+          公開時は各サービスの規約に沿って、リンク先ごとに必要な表記を追加してください。
+        </p>
+      </div>
+
       <div className="review-grid link-grid route-links affiliate-grid">
         {affiliateLinks.map((item) => (
           <a
@@ -473,9 +510,10 @@ function LinksPage() {
             target="_blank"
           >
             <div>
-              <span className="panel-label">Affiliate link</span>
+              <span className="panel-label">{item.category}</span>
               <blockquote>{item.label}</blockquote>
             </div>
+            <span className="affiliate-badge">{item.badge}</span>
             <p>{item.text}</p>
           </a>
         ))}
