@@ -1,4 +1,5 @@
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
+import AdBanner from './AdBanner';
 
 const highlights = [
   { value: 'Live', label: 'リアルタイムプレビューで即確認' },
@@ -45,22 +46,43 @@ const audiences = [
 
 const plans = [
   {
+    slug: 'free',
     name: '無料版',
-    href: 'https://rainbowmd.booth.pm/items/7887271',
+    href: 'https://memo-color.booth.pm/items/8061337',
     note: 'まず雰囲気と使い心地を試したい人向け。',
-    accent: 'plan-free'
+    accent: 'plan-free',
+    summary: '最初の導入用。基本の操作感と表示のテンポを無料で確認できます。',
+    points: [
+      'まず使い心地を見たい人向けの入口プラン',
+      '執筆からプレビューまでの流れを軽く試せる',
+      '導入判断をしたい人が最初に触る想定'
+    ]
   },
   {
+    slug: 'beta',
     name: 'ベータ版',
-    href: 'https://rainbowmd.booth.pm/items/7887376',
+    href: 'https://memo-color.booth.pm/items/8061302',
     note: '新しい改善を早めに触りたい人向け。',
-    accent: 'plan-beta'
+    accent: 'plan-beta',
+    summary: '改善途中の更新を早めに触りたい人向け。変化の速さを優先するプランです。',
+    points: [
+      '新機能や改善を先に触って確認したい人向け',
+      '安定性よりも更新速度を重視したいときに合う',
+      '個人開発の進化を追いながら使いたい人向け'
+    ]
   },
   {
+    slug: 'pro',
     name: '製品版',
-    href: 'https://rainbowmd.booth.pm/items/7887435',
+    href: 'https://memo-color.booth.pm/items/8061324',
     note: 'RainbowMD をしっかり使いたい人向けの本命プラン。',
-    accent: 'plan-pro'
+    accent: 'plan-pro',
+    summary: '継続的に使う前提で選ぶメインプラン。日常の執筆環境として据えたい人向けです。',
+    points: [
+      'しっかり使い続ける前提で選ぶ本命プラン',
+      '日常メモや資料づくりの定着を想定した導線',
+      '気に入ったあとに腰を据えて選びやすい位置付け'
+    ]
   }
 ];
 
@@ -79,6 +101,24 @@ const links = [
     label: 'Ko-fi',
     href: 'https://ko-fi.com/rainbowmd',
     text: '継続開発を支援したい方向けのサポートリンクです。'
+  }
+];
+
+const affiliateLinks = [
+  {
+    label: '制作メモを残すなら Notion',
+    href: 'https://www.notion.so/ja-jp',
+    text: '仕様整理やアイデアの下書きに向く定番ツール。実運用時はここを自分のアフィリエイト URL に差し替えられます。'
+  },
+  {
+    label: '集中して書くなら Kindle',
+    href: 'https://www.amazon.co.jp/kindle-dbs/hz/signup',
+    text: '調査と読書の導線をまとめたい人向け。紹介リンクを載せやすい定番カテゴリとして枠を用意しています。'
+  },
+  {
+    label: '周辺機材の紹介枠',
+    href: 'https://www.amazon.co.jp/',
+    text: 'キーボードやモニターなど、執筆環境に紐づく商材を紹介するためのアフィリエイト枠です。'
   }
 ];
 
@@ -125,7 +165,7 @@ function AppShell({ children }) {
             <h2>Markdown を、もっと軽く、鮮やかに。</h2>
           </div>
           <div className="footer-links">
-            <a href="https://rainbowmd.booth.pm/items/7887435">製品版</a>
+            <a href="https://memo-color.booth.pm/items/8061324">製品版</a>
             <a href="https://github.com/toukanno/rainbowmd-pages">GitHub</a>
             <a href="privacy-policy.html">Privacy Policy</a>
           </div>
@@ -206,6 +246,10 @@ function HomePage() {
         </div>
       </section>
 
+      <section className="shell section">
+        <AdBanner className="content-ad" slot={import.meta.env.VITE_ADSENSE_SLOT_HOME} />
+      </section>
+
       <section className="shell section quick-grid">
         <NavLink className="jump-card" to="/features">
           <span className="panel-label">Explore</span>
@@ -246,6 +290,8 @@ function FeaturesPage() {
         ))}
       </div>
 
+      <AdBanner className="content-ad" slot={import.meta.env.VITE_ADSENSE_SLOT_FEATURES} />
+
       <div className="split-section detail-section">
         <div className="proof-panel">
           <p className="eyebrow">Why it works</p>
@@ -283,10 +329,15 @@ function PlansPage() {
             <span className="panel-label">Booth</span>
             <h3>{plan.name}</h3>
             <p>{plan.note}</p>
-            <a className="button button-secondary" href={plan.href}>このプランを見る</a>
+            <div className="contact-actions">
+              <NavLink className="button button-primary" to={`/plans/${plan.slug}`}>詳細ページ</NavLink>
+              <a className="button button-secondary" href={plan.href}>Booth で見る</a>
+            </div>
           </article>
         ))}
       </div>
+
+      <AdBanner className="content-ad" slot={import.meta.env.VITE_ADSENSE_SLOT_PLANS} />
 
       <div className="proof-section detail-section">
         <div className="proof-panel">
@@ -308,6 +359,38 @@ function PlansPage() {
   );
 }
 
+function PlanDetailPage({ plan }) {
+  return (
+    <section className="shell section route-page">
+      <div className="contact-section support-layout">
+        <div className="route-intro">
+          <p className="eyebrow">Plan Detail</p>
+          <h1 className="route-title">{plan.name}の詳細</h1>
+          <p>{plan.summary}</p>
+        </div>
+
+        <div className={`contact-card support-card ${plan.accent}`}>
+          <p>{plan.note}</p>
+          <div className="workflow-list">
+            {plan.points.map((point, index) => (
+              <article className="workflow-item" key={point}>
+                <span>{`0${index + 1}`}</span>
+                <div>
+                  <p>{point}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="contact-actions">
+            <a className="button button-primary" href={plan.href}>Booth 商品ページへ</a>
+            <NavLink className="button button-secondary" to="/plans">プラン一覧へ戻る</NavLink>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function LinksPage() {
   return (
     <section className="shell section route-page">
@@ -315,13 +398,42 @@ function LinksPage() {
         <p className="eyebrow">Links</p>
         <h1 className="route-title">知る、試す、支援するまで一か所でたどれる。</h1>
         <p>公式ページ、GitHub、Ko-fi を分けて置くことで、紹介とコミュニティ導線を混線させずに整理しています。</p>
+        <p className="affiliate-note">
+          一部の外部リンクには広告またはアフィリエイトリンクを含められる構成にしています。実際の掲載時は各リンク先の利用規約と表記ルールに合わせて運用してください。
+        </p>
       </div>
+
+      <AdBanner className="content-ad" slot={import.meta.env.VITE_ADSENSE_SLOT_LINKS} />
 
       <div className="review-grid link-grid route-links">
         {links.map((item) => (
           <a className="review-card link-card" href={item.href} key={item.label}>
             <div>
               <span className="panel-label">Open link</span>
+              <blockquote>{item.label}</blockquote>
+            </div>
+            <p>{item.text}</p>
+          </a>
+        ))}
+      </div>
+
+      <div className="section-heading route-intro affiliate-intro">
+        <p className="eyebrow">Affiliate</p>
+        <h2>制作環境や関連サービスも紹介できる。</h2>
+        <p>プロダクト本体の販売導線とは分けて置くことで、広告感を強くしすぎずに収益導線を追加できます。</p>
+      </div>
+
+      <div className="review-grid link-grid route-links affiliate-grid">
+        {affiliateLinks.map((item) => (
+          <a
+            className="review-card link-card affiliate-card"
+            href={item.href}
+            key={item.label}
+            rel="noopener noreferrer sponsored"
+            target="_blank"
+          >
+            <div>
+              <span className="panel-label">Affiliate link</span>
               <blockquote>{item.label}</blockquote>
             </div>
             <p>{item.text}</p>
@@ -345,20 +457,25 @@ function SupportPage() {
         <div className="contact-card support-card">
           <p>
             まず無料版で試し、気に入ればベータ版や製品版へ進めます。
-            継続開発を応援したい場合は Ko-fi から支援できます。
+            継続開発を応援したい場合は Ko-fi から支援でき、関連ツールのアフィリエイト紹介も併用できます。
           </p>
           <div className="contact-actions">
             <a className="button button-primary" href="https://ko-fi.com/rainbowmd">Ko-fi で支援</a>
-            <a className="button button-secondary" href="https://rainbowmd.booth.pm/items/7887435">製品版を見る</a>
+            <NavLink className="button button-secondary" to="/links">アフィリエイト導線を見る</NavLink>
           </div>
         </div>
       </div>
+
+      <AdBanner className="content-ad" slot={import.meta.env.VITE_ADSENSE_SLOT_SUPPORT} />
     </section>
   );
 }
 
 function AppRoutes() {
   const location = useLocation();
+  const freePlan = plans.find((plan) => plan.slug === 'free');
+  const betaPlan = plans.find((plan) => plan.slug === 'beta');
+  const proPlan = plans.find((plan) => plan.slug === 'pro');
 
   return (
     <main key={location.pathname} className="route-transition">
@@ -366,6 +483,9 @@ function AppRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/features" element={<FeaturesPage />} />
         <Route path="/plans" element={<PlansPage />} />
+        <Route path="/plans/free" element={<PlanDetailPage plan={freePlan} />} />
+        <Route path="/plans/beta" element={<PlanDetailPage plan={betaPlan} />} />
+        <Route path="/plans/pro" element={<PlanDetailPage plan={proPlan} />} />
         <Route path="/links" element={<LinksPage />} />
         <Route path="/support" element={<SupportPage />} />
       </Routes>

@@ -416,6 +416,15 @@ p {
   margin-bottom: 22px;
 }
 
+.affiliate-note {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(29, 22, 53, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.66);
+  font-size: 0.95rem;
+}
+
 .route-title {
   font-size: clamp(2.5rem, 6vw, 4.8rem);
 }
@@ -615,6 +624,18 @@ p {
   color: rgba(248, 243, 235, 0.76);
 }
 
+.affiliate-intro {
+  margin-top: 34px;
+}
+
+.affiliate-grid {
+  margin-top: 18px;
+}
+
+.affiliate-card {
+  background: linear-gradient(180deg, rgba(42, 31, 79, 0.98), rgba(73, 49, 105, 0.94));
+}
+
 .support-card {
   position: relative;
   overflow: hidden;
@@ -674,6 +695,47 @@ p {
 
 .support-layout {
   align-items: stretch;
+}
+
+.ad-shell {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.ad-meta {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.ad-meta span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 12px;
+  border: 1px solid rgba(29, 22, 53, 0.12);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.ad-card {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.ad-unit {
+  overflow: hidden;
+  min-height: 120px;
+  border-radius: 18px;
 }
 
 @keyframes rise-in {
@@ -773,6 +835,10 @@ p {
   .review-grid,
   .signal-footer {
     grid-template-columns: 1fr;
+  }
+
+  .ad-card {
+    padding: 14px;
   }
 
   .workflow-item {
