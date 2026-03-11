@@ -1,1 +1,8 @@
 .vercel
+node_modules
+dist
+
+# iOS build artifacts
+ios/App/Pods
+ios/App/App/public
+ios/App/DerivedData
