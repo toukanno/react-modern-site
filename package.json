@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build:ios": "CAPACITOR_BUILD=true vite build && cap sync ios",
+    "build:ios": "cross-env CAPACITOR_BUILD=true vite build && cap sync ios",
     "ios:open": "cap open ios",
     "ios:sync": "cap sync ios",
     "ios:run": "cap run ios"
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "cross-env": "^10.1.0",
     "typescript": "^5.9.3",
     "vite": "^6.2.0"
   }
