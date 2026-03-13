@@ -54,8 +54,8 @@ const audiences = [
 const links = [
   {
     label: '公式ページ',
-    href: 'https://toukanno.github.io/rainbowmd-pages/',
-    text: '機能紹介やプロジェクトの全体像を確認できます。'
+    href: 'https://markdown-electron.vercel.app',
+    text: 'Markdown editor with real-time preview built with Electron'
   },
   {
     label: 'GitHub',
