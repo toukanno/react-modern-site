@@ -1,3 +1,7 @@
-interface Window {
-  adsbygoogle: unknown[];
+export {};
+
+declare global {
+  interface Window {
+    adsbygoogle: unknown[];
+  }
 }
