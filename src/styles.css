@@ -408,6 +408,47 @@ p {
   background: rgba(255, 255, 255, 0.04);
 }
 
+.theme-control {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(248, 243, 235, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.theme-control-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.theme-control-buttons .button {
+  min-height: 40px;
+  padding: 0 16px;
+}
+
+.theme-color-preview {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.theme-color-dot {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--dot-color);
+  opacity: 0.4;
+  transform: scale(0.9);
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+
+.theme-color-dot.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .section {
   padding-top: 28px;
 }
