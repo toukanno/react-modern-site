@@ -52,3 +52,8 @@ VITE_ADSENSE_SLOT_SUPPORT=1234567890
 - Vercel
 - Cloudflare Pages
 - Netlify
+
+## プロジェクト管理
+
+プロジェクトマネジメント計画は `docs/PROJECT_MANAGEMENT.md` を参照してください。
+
