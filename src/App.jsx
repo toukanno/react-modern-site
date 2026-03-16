@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import AdBanner from './AdBanner';
 import {
@@ -158,6 +159,24 @@ function AppShell({ children }) {
 }
 
 function HomePage() {
+  const themeColors = [
+    '#ff6b6b',
+    '#ff9f43',
+    '#feca57',
+    '#1dd1a1',
+    '#48dbfb',
+    '#5f27cd',
+    '#ff9ff3',
+    '#54a0ff',
+    '#00d2d3',
+    '#c8d6e5'
+  ];
+  const [activeColorIndex, setActiveColorIndex] = useState(0);
+
+  const handleSizeClick = (step) => {
+    setActiveColorIndex((currentIndex) => (currentIndex + step) % themeColors.length);
+  };
+
   return (
     <>
       <section className="shell hero route-panel">
@@ -198,7 +217,13 @@ function HomePage() {
             <p>シンプルな編集画面、鮮やかなテーマ、すぐ確認できるプレビューを一つにまとめた Markdown エディタです。</p>
           </div>
 
-          <div className="panel-card panel-surface">
+          <div
+            className="panel-card panel-surface"
+            style={{
+              borderColor: themeColors[activeColorIndex],
+              boxShadow: `0 18px 40px ${themeColors[activeColorIndex]}33`
+            }}
+          >
             <div className="signal-grid">
               <div className="signal-main">
                 <span className="panel-label">Core experience</span>
@@ -222,6 +247,25 @@ function HomePage() {
               <div>
                 <span className="panel-label">Share output</span>
                 <strong>HTML / PDF</strong>
+              </div>
+            </div>
+
+            <div className="theme-control" aria-label="テーマカラー変更">
+              <span className="panel-label">Size</span>
+              <div className="theme-control-buttons">
+                <button type="button" className="button button-secondary" onClick={() => handleSizeClick(1)}>S</button>
+                <button type="button" className="button button-secondary" onClick={() => handleSizeClick(2)}>M</button>
+                <button type="button" className="button button-secondary" onClick={() => handleSizeClick(3)}>L</button>
+              </div>
+
+              <div className="theme-color-preview" aria-hidden="true">
+                {themeColors.map((color, index) => (
+                  <span
+                    key={color}
+                    className={`theme-color-dot${index === activeColorIndex ? ' is-active' : ''}`}
+                    style={{ '--dot-color': color }}
+                  />
+                ))}
               </div>
             </div>
           </div>
