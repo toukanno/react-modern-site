@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import AdBanner from './AdBanner';
+import { ThemeProvider, useTheme, THEME_KEYS } from './ThemeContext';
 import {
   comparisonRows,
   planCatalog,
@@ -55,8 +56,8 @@ const audiences = [
 const links = [
   {
     label: '公式ページ',
-    href: 'https://markdown-electron.vercel.app',
-    text: 'Markdown editor with real-time preview built with Electron'
+    href: 'https://toukanno.github.io/rainbowmd-pages/',
+    text: '機能紹介やプロジェクトの全体像を確認できます。'
   },
   {
     label: 'GitHub',
@@ -94,9 +95,15 @@ const affiliateLinks = [
   }
 ];
 
-const monetizationPoints = [
-  'Links ページではプロダクト導線と分離して、アフィリエイトリンクだけをまとまった一覧にしています。',
-  '広告・アフィリエイト表記をページ内に入れ、後から実リンクへ差し替えやすい形にしています。'
+const productPoints = [
+  {
+    label: 'Feature',
+    text: 'Markdown ファイルをわかりやすく整理し、日々のメモやドキュメントを快適に扱えます。'
+  },
+  {
+    label: 'Feature',
+    text: 'Electron ベースで動作するため、デスクトップ環境で直感的に編集・閲覧できます。'
+  }
 ];
 
 const microsoftStore = {
@@ -112,6 +119,95 @@ const navItems = [
   { to: '/support', label: 'Support' }
 ];
 
+function useClickOutside(ref, active, onClose) {
+  useEffect(() => {
+    if (!active) return;
+    function handle(e) {
+      if (ref.current && !ref.current.contains(e.target)) onClose();
+    }
+    document.addEventListener('mousedown', handle);
+    return () => document.removeEventListener('mousedown', handle);
+  }, [ref, active, onClose]);
+}
+
+function ColorSwatchGrid({ current, onChange }) {
+  return (
+    <div className="color-swatch-grid">
+      {THEME_KEYS.map((key) => (
+        <button
+          key={key}
+          onClick={() => onChange(key)}
+          aria-label={key}
+          title={key}
+          className={`color-swatch color-swatch--${key}${current === key ? ' is-selected' : ''}`}
+        />
+      ))}
+    </div>
+  );
+}
+
+function HeaderControls() {
+  const { themeKey, changeTheme, preset } = useTheme();
+  const [colorOpen, setColorOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const colorRef = useRef(null);
+  const settingsRef = useRef(null);
+
+  const closeColor = useCallback(() => setColorOpen(false), []);
+  const closeSettings = useCallback(() => setSettingsOpen(false), []);
+
+  useClickOutside(colorRef, colorOpen, closeColor);
+  useClickOutside(settingsRef, settingsOpen, closeSettings);
+
+  return (
+    <div className="header-controls">
+      {/* Quick Color Picker */}
+      <div className="header-control-wrapper" ref={colorRef}>
+        <button
+          className={`header-btn header-btn-color${colorOpen ? ' is-open' : ''}`}
+          onClick={() => { setColorOpen(!colorOpen); if (settingsOpen) setSettingsOpen(false); }}
+          aria-label="カラーを変更"
+          aria-expanded={colorOpen}
+          title="カラーを変更"
+        >
+          <span className="color-indicator" style={{ background: preset.accent }} />
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M4.098 19.902a3.75 3.75 0 005.304 0l6.401-6.402M6.75 21A3.75 3.75 0 013 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 003.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008z" />
+          </svg>
+        </button>
+        {colorOpen && (
+          <div className="header-popover header-popover-color">
+            <p className="popover-label">Color</p>
+            <ColorSwatchGrid current={themeKey} onChange={changeTheme} />
+          </div>
+        )}
+      </div>
+
+      {/* Settings */}
+      <div className="header-control-wrapper" ref={settingsRef}>
+        <button
+          className={`header-btn header-btn-settings${settingsOpen ? ' is-open' : ''}`}
+          onClick={() => { setSettingsOpen(!settingsOpen); if (colorOpen) setColorOpen(false); }}
+          aria-label="設定"
+          aria-expanded={settingsOpen}
+          title="設定"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 010-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28z" />
+            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+        {settingsOpen && (
+          <div className="header-popover header-popover-settings">
+            <p className="popover-label">Color</p>
+            <ColorSwatchGrid current={themeKey} onChange={changeTheme} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function AppShell({ children }) {
   return (
     <div className="page rainbow-page">
@@ -120,22 +216,25 @@ function AppShell({ children }) {
 
       <header className="shell site-header">
         <NavLink className="brand" to="/" aria-label="RainbowMD home">
-          <span className="brand-mark" />
+          <span className="brand-mark" style={{ background: 'var(--accent-brand-grad)' }} />
           <span>RAINBOWMD</span>
         </NavLink>
 
-        <nav className="site-nav" aria-label="Primary">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) => `nav-link${isActive ? ' is-active' : ''}`}
-              end={item.to === '/'}
-            >
-              {item.label}
-            </NavLink>
-          ))}
-        </nav>
+        <div className="site-header-right">
+          <nav className="site-nav" aria-label="Primary">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) => `nav-link${isActive ? ' is-active' : ''}`}
+                end={item.to === '/'}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </nav>
+          <HeaderControls />
+        </div>
       </header>
 
       {children}
@@ -159,24 +258,6 @@ function AppShell({ children }) {
 }
 
 function HomePage() {
-  const themeColors = [
-    '#ff6b6b',
-    '#ff9f43',
-    '#feca57',
-    '#1dd1a1',
-    '#48dbfb',
-    '#5f27cd',
-    '#ff9ff3',
-    '#54a0ff',
-    '#00d2d3',
-    '#c8d6e5'
-  ];
-  const [activeColorIndex, setActiveColorIndex] = useState(0);
-
-  const handleSizeClick = (step) => {
-    setActiveColorIndex((currentIndex) => (currentIndex + step) % themeColors.length);
-  };
-
   return (
     <>
       <section className="shell hero route-panel">
@@ -195,9 +276,29 @@ function HomePage() {
             HTML / PDF 書き出しにも対応し、個人開発の文書作成や配布にも扱いやすい構成です。
           </p>
 
-          <div className="hero-actions">
-            <NavLink className="button button-primary" to="/plans">自分に合うプランを選ぶ</NavLink>
-            <NavLink className="button button-secondary" to="/features">機能を見る</NavLink>
+          <div className="hero-actions hero-actions-download">
+            <div className="hero-store-badge">
+              <ms-store-badge
+                productid="xp8bvg4dlvcq3c"
+                productname="RainbowMD"
+                window-mode="direct"
+                theme="light"
+                size="large"
+                language="ja"
+                animation="on"
+              />
+            </div>
+            <a className="button button-primary" href="https://memo-color.booth.pm/items/8061337">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: 8}}>
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Free Download
+            </a>
+            <NavLink className="button button-secondary" to="/features">
+              Learn More
+            </NavLink>
           </div>
 
           <dl className="hero-metrics">
@@ -217,13 +318,7 @@ function HomePage() {
             <p>シンプルな編集画面、鮮やかなテーマ、すぐ確認できるプレビューを一つにまとめた Markdown エディタです。</p>
           </div>
 
-          <div
-            className="panel-card panel-surface"
-            style={{
-              borderColor: themeColors[activeColorIndex],
-              boxShadow: `0 18px 40px ${themeColors[activeColorIndex]}33`
-            }}
-          >
+          <div className="panel-card panel-surface">
             <div className="signal-grid">
               <div className="signal-main">
                 <span className="panel-label">Core experience</span>
@@ -249,25 +344,6 @@ function HomePage() {
                 <strong>HTML / PDF</strong>
               </div>
             </div>
-
-            <div className="theme-control" aria-label="テーマカラー変更">
-              <span className="panel-label">Size</span>
-              <div className="theme-control-buttons">
-                <button type="button" className="button button-secondary" onClick={() => handleSizeClick(1)}>S</button>
-                <button type="button" className="button button-secondary" onClick={() => handleSizeClick(2)}>M</button>
-                <button type="button" className="button button-secondary" onClick={() => handleSizeClick(3)}>L</button>
-              </div>
-
-              <div className="theme-color-preview" aria-hidden="true">
-                {themeColors.map((color, index) => (
-                  <span
-                    key={color}
-                    className={`theme-color-dot${index === activeColorIndex ? ' is-active' : ''}`}
-                    style={{ '--dot-color': color }}
-                  />
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -278,16 +354,16 @@ function HomePage() {
 
       <section className="shell section monetization-section">
         <div className="section-heading route-intro">
-          <p className="eyebrow">Monetize</p>
-          <h2>広告とアフィリエイトを、導線を崩さずに置く。</h2>
-          <p>プロダクト販売ページの温度感を保ちながら、広告掲載と関連サービス紹介を分離して収益化できる構成です。</p>
+          <p className="eyebrow">Product</p>
+          <h2>書く・読む・整理するを、ひとつに。</h2>
+          <p>Markdown Electron は、Markdown の編集・閲覧・管理をシンプルに行えるデスクトップアプリです。Electron ベースで動作し、ローカルでも扱いやすく、日々のメモやドキュメント管理を快適にします。</p>
         </div>
 
         <div className="review-grid monetization-grid">
-          {monetizationPoints.map((item) => (
-            <article className="review-card metric-card monetization-card" key={item}>
-              <span className="panel-label">Revenue</span>
-              <p>{item}</p>
+          {productPoints.map((item) => (
+            <article className="review-card metric-card monetization-card" key={item.text}>
+              <span className="panel-label">{item.label}</span>
+              <p>{item.text}</p>
             </article>
           ))}
         </div>
@@ -379,10 +455,20 @@ function PlansPage() {
           <span className="panel-label">{featuredPlan.badge}</span>
           <h3>{featuredPlan.name}</h3>
           <p>{featuredPlan.value}</p>
-          <div className="contact-actions">
+          <div className="contact-actions plan-actions-store">
             <a className="button button-primary" href={featuredPlan.href}>継続利用の本命を見る</a>
-            <a className="button button-secondary" href={microsoftStore.webUrl}>Microsoft Store 版</a>
-            <a className="button button-secondary" href={microsoftStore.deepLink}>Windows ストアアプリで開く</a>
+            <div className="plan-store-badge">
+              <ms-store-badge
+                productid="xp8bvg4dlvcq3c"
+                productname="RainbowMD"
+                window-mode="direct"
+                theme="dark"
+                size="large"
+                language="ja"
+                animation="on"
+              />
+            </div>
+            <NavLink className="button button-secondary" to="/features">機能を見る</NavLink>
           </div>
         </article>
       </div>
@@ -610,8 +696,10 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <AppShell>
-      <AppRoutes />
-    </AppShell>
+    <ThemeProvider>
+      <AppShell>
+        <AppRoutes />
+      </AppShell>
+    </ThemeProvider>
   );
 }
