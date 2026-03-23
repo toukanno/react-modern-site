@@ -246,7 +246,7 @@ function AppShell({ children }) {
             <h2>Markdown を、もっと軽く、鮮やかに。</h2>
           </div>
           <div className="footer-links">
-            <a href="https://memo-color.booth.pm/items/8061324">製品版</a>
+            <a href="https://apps.microsoft.com/detail/9N0MG9WF2LBG">製品版</a>
             <a href={microsoftStore.webUrl}>Microsoft Store</a>
             <a href="https://github.com/toukanno/rainbowmd-pages">GitHub</a>
             <a href="privacy-policy.html">Privacy Policy</a>
@@ -288,7 +288,7 @@ function HomePage() {
                 animation="on"
               />
             </div>
-            <a className="button button-primary" href="https://memo-color.booth.pm/items/8061337">
+            <a className="button button-primary" href="https://apps.microsoft.com/detail/9N0MG9WF2LBG">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginRight: 8}}>
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
                 <polyline points="7 10 12 15 17 10" />
@@ -378,7 +378,7 @@ function HomePage() {
         <NavLink className="jump-card" to="/plans">
           <span className="panel-label">Choose</span>
           <strong>プラン診断へ</strong>
-          <p>無料版、ベータ版、製品版の違いを見比べて、そのまま Booth へ進めます。</p>
+          <p>無料版、ベータ版、製品版の違いを見比べて、そのまま Microsoft Store へ進めます。</p>
         </NavLink>
         <NavLink className="jump-card" to="/support">
           <span className="panel-label">Support</span>
@@ -448,7 +448,7 @@ function PlansPage() {
         <div className="proof-panel plan-decision-copy">
           <p className="eyebrow">Choose by fit</p>
           <h2>まずは「何を確かめたいか」で選ぶ。</h2>
-          <p>最初の確認なら無料版、改善を早く追うならベータ版、日常利用の本命なら製品版という考え方で十分です。先に用途を決めてから Booth へ進めると迷いが減ります。</p>
+          <p>最初の確認なら無料版、改善を早く追うならベータ版、日常利用の本命なら製品版という考え方で十分です。先に用途を決めてから Microsoft Store へ進めると迷いが減ります。</p>
         </div>
 
         <article className={`plan-focus-card ${featuredPlan.accent}`}>
@@ -550,8 +550,8 @@ function PlansPage() {
       <div className="proof-section detail-section">
         <div className="proof-panel">
           <p className="eyebrow">Before you click out</p>
-          <h2>Booth に出る前の迷いを、このページで減らす。</h2>
-          <p>購入先はそのまま Booth ですが、判断材料はこのページにまとめています。押し売りではなく、無料版から段階的に選べることを前提にした案内です。</p>
+          <h2>Microsoft Store に出る前の迷いを、このページで減らす。</h2>
+          <p>購入先はそのまま Microsoft Store ですが、判断材料はこのページにまとめています。押し売りではなく、無料版から段階的に選べることを前提にした案内です。</p>
         </div>
         <div className="review-grid plan-review-grid reassurance-grid">
           {purchaseReassurance.map((item) => (
@@ -663,7 +663,7 @@ function SupportPage() {
 
         <div className="contact-card support-card">
           <p>
-            製品を選びたいなら、まず無料版・ベータ版・製品版の違いを見てから Booth に進む流れが適しています。
+            製品を選びたいなら、まず無料版・ベータ版・製品版の違いを見てから Microsoft Store に進む流れが適しています。
             継続開発を応援したい場合だけ、Ko-fi から支援できるように分けています。
           </p>
           <div className="contact-actions">

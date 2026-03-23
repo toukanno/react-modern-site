@@ -2,7 +2,7 @@ export const planCatalog = [
   {
     slug: 'free',
     name: '無料版',
-    href: 'https://memo-color.booth.pm/items/8061337',
+    href: 'https://apps.microsoft.com/detail/9N0MG9WF2LBG',
     accent: 'plan-free',
     badge: 'First step',
     note: 'まず雰囲気と使い心地を試したい人向け。',
@@ -11,12 +11,12 @@ export const planCatalog = [
     bestFor: '最初の一本として、合うかどうかを短時間で見極めたいとき。',
     upgradePath: '気に入ったらベータ版で改善を追うか、製品版で日常利用に移れます。',
     ctaLabel: 'まず無料版を試す',
-    ctaNote: '判断材料を集めるための最初の Booth 導線です。'
+    ctaNote: '判断材料を集めるための最初の Microsoft Store 導線です。'
   },
   {
     slug: 'beta',
     name: 'ベータ版',
-    href: 'https://memo-color.booth.pm/items/8061302',
+    href: 'https://apps.microsoft.com/detail/9N0MG9WF2LBG',
     accent: 'plan-beta',
     badge: 'Early access',
     note: '新しい改善を早めに触りたい人向け。',
@@ -25,12 +25,12 @@ export const planCatalog = [
     bestFor: '安定よりも新しい変化を先に触って確認したいとき。',
     upgradePath: '継続利用の軸が固まったら、製品版をメインに据える判断につなげやすい構成です。',
     ctaLabel: 'ベータ版を見に行く',
-    ctaNote: '改善を先に追いたい人向けの Booth 導線です。'
+    ctaNote: '改善を先に追いたい人向けの Microsoft Store 導線です。'
   },
   {
     slug: 'pro',
     name: '製品版',
-    href: 'https://memo-color.booth.pm/items/8061324',
+    href: 'https://apps.microsoft.com/detail/9N0MG9WF2LBG',
     accent: 'plan-pro',
     badge: 'Main plan',
     note: 'RainbowMD をしっかり使いたい人向けの本命プラン。',
@@ -39,7 +39,7 @@ export const planCatalog = [
     bestFor: '日常メモ、資料づくり、継続的な文書作成の道具として定着させたいとき。',
     upgradePath: '無料版やベータ版で納得できたあとに、そのまま本命として選べます。',
     ctaLabel: '製品版を選ぶ',
-    ctaNote: '継続利用を前提にした Booth 導線です。'
+    ctaNote: '継続利用を前提にした Microsoft Store 導線です。'
   }
 ];
 
@@ -84,7 +84,7 @@ export const planFaqs = [
 ];
 
 export const purchaseReassurance = [
-  '購入はすべて既存の Booth 商品ページへ移動する形で、サイト内で決済は行いません。',
+  '購入はすべてMicrosoft Store へ移動する形で、サイト内で決済は行いません。',
   '無料版から段階的に選べる設計なので、最初から有料版を選ぶ前提ではありません。',
   '支援したい気持ちと購入したい気持ちは分けて考えられるよう、購入導線と Ko-fi 支援導線は別ページに整理しています。'
 ];
