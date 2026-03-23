@@ -946,6 +946,46 @@ p {
   border-radius: 18px;
 }
 
+/* ── Platform Status ── */
+
+.platform-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.platform-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+}
+
+.platform-item strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+}
+
+.platform-item span {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.platform-item.is-active {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(223, 243, 242, 0.7);
+}
+
+.platform-item.is-active span {
+  color: #059669;
+  font-weight: 600;
+}
+
 /* ── Download Actions (Hero & Plans) ── */
 
 .hero-actions-download {
@@ -1117,6 +1157,10 @@ p {
   .plan-actions-store .button {
     justify-content: center;
     width: 100%;
+  }
+
+  .hide-mobile {
+    display: none !important;
   }
 
   .plan-focus-card,
