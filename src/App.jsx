@@ -107,8 +107,8 @@ const productPoints = [
 ];
 
 const microsoftStore = {
-  deepLink: 'ms-windows-store://pdp/?productid=XP8BVG4DLVCQ3C',
-  webUrl: 'https://apps.microsoft.com/store/detail/XP8BVG4DLVCQ3C'
+  deepLink: 'https://apps.microsoft.com/detail/9N0MG9WF2LBG',
+  webUrl: 'https://apps.microsoft.com/detail/9N0MG9WF2LBG'
 };
 
 const navItems = [
